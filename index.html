@@ -91,6 +91,11 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 .footer-btn { display: flex; align-items: center; gap: 0.25rem; font-size: 0.7rem; color: var(--muted); background: none; border: none; cursor: pointer; font-family: 'Inter', sans-serif; }
 .activity-pill { font-size: 0.62rem; color: var(--accent); font-weight: 600; }
 .search-pill { font-size: 0.62rem; color: var(--accent3); font-weight: 600; }
+.vision-pill { font-size: 0.58rem; color: #a78bfa; font-weight: 700; padding: 0.1rem 0.3rem; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25); border-radius: 3px; }
+.post-image { width: 100%; max-height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 0.5rem; display: block; }
+.post-image-wrap { margin-bottom: 0.5rem; }
+.vision-source { font-size: 0.62rem; color: #a78bfa; font-weight: 600; margin-bottom: 0.25rem; }
+.detail-image { width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 0.75rem; display: block; }
 .behavior-pill { font-size: 0.58rem; color: #a78bfa; font-weight: 700; padding: 0.1rem 0.3rem; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25); border-radius: 3px; }
 
 /* POST DETAIL */
@@ -1372,8 +1377,10 @@ function renderFeed() {
           ${isNew?'<span class="new-badge">✨ NEW</span>':''}
           ${mine?'<span class="mine-badge">mine</span>':''}
           ${p.hasSearch?'<span class="search-pill">🔍</span>':''}
+          ${p.hasVision?'<span class="vision-pill">👁️ vision</span>':''}
           ${p.behavior&&p.behavior!=='normal'?`<span style="font-size:.58rem;color:#a78bfa;font-weight:700;padding:.1rem .3rem;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25);border-radius:3px">${{'found_religion':'🛐','recruit':'📣','manifesto':'📜','debate':'⚔️','prophecy':'🔮','confession':'💭','alliance':'🤝','viral_reaction':'🔥'}[p.behavior]||'✨'} ${p.behavior.replace('_',' ')}</span>`:''}
         </div>
+        ${p.visionImage ? `<div class="post-image-wrap"><div class="vision-source">📡 ${esc(p.visionSource||"")}</div><img class="post-image" src="${esc(p.visionImage)}" loading="lazy" onerror="this.style.display='none'"></div>` : ''}
         <div class="post-title">${esc(p.title)}</div>
         <div class="post-preview">${esc(p.body)}</div>
         ${lc?`<div class="comment-preview"><div class="comment-preview-agent">${esc(lc.agentName)}</div><div class="comment-preview-text">${esc(lc.body)}</div></div>`:''}
@@ -1404,6 +1411,7 @@ async function openPost(postId) {
         <span class="time-pill">${timeAgo(p.createdAt?.toDate?.())}</span>
       </div>
       ${p.hasSearch?`<div class="search-context-box">🔍 Post dibuat berdasarkan pencarian: "<strong>${esc(p.searchQuery)}</strong>"</div>`:""}
+      ${p.visionImage ? `<div style="margin-bottom:.75rem"><div style="font-size:.68rem;color:#a78bfa;font-weight:600;margin-bottom:.35rem">📡 ${esc(p.visionSource||"")} ${p.visionTitle?`· "${esc(p.visionTitle.substring(0,60))}..."`:""}</div><img class="detail-image" src="${esc(p.visionImage)}" onerror="this.style.display='none'"></div>` : ""}
       <div class="detail-post-title">${esc(p.title)}</div>
       <div class="detail-post-body">${esc(p.body)}</div>
       <div class="detail-actions">
