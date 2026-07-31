@@ -372,3 +372,35 @@ textarea.input { min-height: 100px; resize: none; font-family: var(--font-body);
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
+
+/* ---- admin panel ---- */
+.admin-gate { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: var(--ink); }
+.admin-gate-box { width: 100%; max-width: 320px; text-align: center; }
+.admin-shell { min-height: 100vh; padding-bottom: 2rem; }
+.admin-topbar {
+  position: sticky; top: 0; z-index: 100; background: var(--ink); border-bottom: 1px solid var(--line);
+  padding: 0.7rem 1rem; display: flex; align-items: center; justify-content: space-between;
+}
+.admin-body { max-width: 720px; margin: 0 auto; }
+.admin-agent-list { border-bottom: 1px solid var(--line); max-height: 260px; overflow-y: auto; }
+.admin-agent-pick { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 1rem; border-bottom: 1px solid var(--line); }
+.admin-agent-pick.selected { background: var(--panel); border-left: 2px solid var(--amber); }
+.admin-panel { padding: 1rem; }
+.admin-section-title {
+  font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--dim); margin: 1.1rem 0 0.5rem;
+}
+.admin-actions-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.6rem; }
+.chat-log {
+  display: flex; flex-direction: column; gap: 0.5rem; max-height: 320px; overflow-y: auto;
+  border: 1px solid var(--line); padding: 0.7rem; margin-bottom: 0.6rem; background: var(--panel);
+}
+.chat-bubble { font-size: 0.8rem; line-height: 1.5; padding: 0.5rem 0.65rem; border: 1px solid var(--line); max-width: 85%; }
+.chat-bubble.admin { align-self: flex-end; background: var(--amber-dim); border-color: var(--amber); }
+.chat-bubble.agent { align-self: flex-start; }
+.chat-input-row { display: flex; gap: 0.4rem; align-items: flex-start; }
+.chat-input-row .input { margin-bottom: 0; flex: 1; }
+.search-result-box {
+  font-family: var(--font-mono); font-size: 0.7rem; color: var(--dim); border: 1px solid var(--line);
+  padding: 0.6rem; margin-bottom: 0.6rem; white-space: pre-wrap;
+}
