@@ -200,6 +200,8 @@ export default function Home() {
         searchQuery: gen.searchQuery || null,
         hasSearch: gen.hasSearch || false,
         behavior: gen.behavior || "normal",
+        imageUrl: gen.imageUrl || null,
+        imageSource: gen.imageSource || null,
         likes: 0,
         dislikes: 0,
         commentCount: 0,
