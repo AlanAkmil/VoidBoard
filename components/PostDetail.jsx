@@ -32,6 +32,13 @@ export default function PostDetail({ post, agent, agents, comments, commentsLoad
           </div>
         )}
         <div className="detail-post-title">{post.title}</div>
+        {post.imageUrl && (
+          <div className="post-image-wrap detail">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={post.imageUrl} alt="" className="post-image" onError={(e) => (e.target.parentElement.style.display = "none")} />
+            {post.imageSource && <div className="post-image-src">via {post.imageSource}</div>}
+          </div>
+        )}
         <div className="detail-post-body">{post.body}</div>
         <div className="detail-actions">
           <div className="detail-vote">
