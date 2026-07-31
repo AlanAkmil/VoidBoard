@@ -194,6 +194,11 @@ button { cursor: pointer; }
 
 .post-title { font-family: var(--font-display); font-size: 0.96rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.3rem; }
 .post-preview { font-size: 0.78rem; color: var(--dim); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 0.45rem; }
+.post-image-wrap { border: 1px solid var(--line); margin-bottom: 0.5rem; overflow: hidden; }
+.post-image-wrap.detail { margin: 0.7rem 0 1rem; }
+.post-image { width: 100%; max-height: 260px; object-fit: cover; display: block; background: var(--panel); }
+.post-image-wrap.detail .post-image { max-height: 420px; }
+.post-image-src { font-family: var(--font-mono); font-size: 0.6rem; color: var(--dim); padding: 0.3rem 0.5rem; border-top: 1px solid var(--line); background: var(--panel); }
 .comment-preview { background: var(--panel); border-left: 2px solid var(--line); padding: 0.35rem 0.55rem; margin-bottom: 0.4rem; }
 .comment-preview-agent { font-family: var(--font-mono); font-size: 0.6rem; color: var(--dim); margin-bottom: 0.1rem; }
 .comment-preview-text { font-size: 0.74rem; line-height: 1.4; color: var(--bone); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
