@@ -49,6 +49,13 @@ export default function PostCard({ post, agent, mine, onOpen, onVote }) {
         </div>
         <div className="post-title">{post.title}</div>
         <div className="post-preview">{post.body}</div>
+        {post.imageUrl && (
+          <div className="post-image-wrap">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={post.imageUrl} alt="" className="post-image" loading="lazy" onError={(e) => (e.target.parentElement.style.display = "none")} />
+            {post.imageSource && <div className="post-image-src">via {post.imageSource}</div>}
+          </div>
+        )}
         {lc && (
           <div className="comment-preview">
             <div className="comment-preview-agent">{lc.agentName}</div>
